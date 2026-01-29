@@ -1,30 +1,98 @@
-type ChaiOrder = {
-    type: string,
-    sugar: number
-}  
+/* //enums
 
-
-function isChaiOrder(obj:any):obj is ChaiOrder{
-     return (
-        typeof obj === "object" &&
-        obj !== "null" &&
-        typeof obj.type === "string" &&
-        typeof obj.sugar === "number"
-     )
+enum CupSize {
+    SMALL,
+    MEDIUM,
+    LARGE
 }
 
 
+const size = CupSize.LARGE
 
-function serveOrder(item:ChaiOrder | string){
-    if(isChaiOrder(item)){
-        return `Serving chai that is ${item.type} with ${item.sugar}`
-         
+
+//another example of defining enum and passing them in a function
+
+
+enum ChaiType {
+    GINGER = "ginger",
+    MASALA = "masala",
+}
+
+
+function makeChai (type: ChaiType){
+        console.log(`Making: ${type} chai!!`)
+}
+
+
+makeChai(ChaiType.MASALA) */
+
+
+
+
+/* 
+//OOPS
+
+class Chai {
+   
+    constructor(public flavour:string, public price:number)
+    {
     }
-    return `Serving bhayanak chai ${item}`
+
+    getName ():string{
+        return `'I am ${this.flavour}'`
+    }
+
 }
 
 
 
+const ginger = new Chai("ginger",20)
 
-console.log(serveOrder({type:"bhayank",
-    sugar: 66}))
+//OOPS access modifier 
+
+class HiChai{
+    public flavour:string = "masala chai";
+
+
+    private secrectIngredients = "elaichi"
+
+
+    reveal(){
+        return this.secrectIngredients 
+    }
+}
+
+
+ */
+//Interface
+
+interface DiscountCalc{
+    (price:number):number
+}
+
+
+
+const apply50:DiscountCalc = (p) => p* 0.5
+
+
+
+
+
+
+interface TeaMachine{
+    start():void;
+    stop():void
+}
+
+
+const t:TeaMachine = {
+    start() {
+        console.log("ramey boiii")
+    },
+    stop() {
+        console.log("gayeb bhoi")
+    },
+}
+
+
+t.start()
