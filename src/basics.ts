@@ -66,7 +66,7 @@ class HiChai{
  */
 //Interface
 
-interface DiscountCalc{
+/* interface DiscountCalc{
     (price:number):number
 }
 
@@ -96,3 +96,85 @@ const t:TeaMachine = {
 
 
 t.start()
+
+
+//index signature
+interface ChaiRating {
+    [flavor:string]:number
+}
+
+
+
+const c:ChaiRating = {
+    masala : 11,
+    terobau: 88
+}
+
+console.log(c.terobau)
+
+
+
+
+interface A {a:string}
+interface B {b:string}
+
+interface C extends A,B {c:number}
+
+
+const red:C = {
+    a : "three",
+    b:"thiri",
+    c: 3
+} */
+
+
+
+
+
+//Generics
+
+//<t> is comminly used to refer to generic
+function SomeRandomName<T> (item:T):T {
+return item
+}
+
+
+
+SomeRandomName(11)
+
+
+
+
+function pair<A,B>(a:A, b:B):[A,B]{
+    return [a,b]
+}
+
+
+pair("ramey",11)
+
+pair("masala",{
+    name:"wagwan",price:69
+})
+
+
+interface box<T>{
+    content: T
+}
+
+
+
+const bt:box<number> = {
+    content:11
+}
+
+
+interface APIPromise <T>{
+    status:number,
+    data: T
+}
+
+
+const response:APIPromise<object> = {
+    status:200,
+   data: {promise:"ammakasam",number:88}
+}

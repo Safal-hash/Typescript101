@@ -37,4 +37,9 @@ const t = {
     },
 };
 t.start();
+const c = {
+    masala: 11,
+    terobau: 88
+};
+console.log(c.terobau);
 //# sourceMappingURL=basics.js.map
